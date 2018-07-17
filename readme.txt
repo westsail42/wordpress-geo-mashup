@@ -61,7 +61,11 @@ and the [tag reference](https://github.com/cyberhobo/wordpress-geo-mashup/wiki/T
 
 = Thanks =
 
-Thanks to [JetBrains](https://www.jetbrains.com) for providing cutting edge development tools to this project.
+Thanks to security researchers for finding and responsibly reporting vulnerabilities:
+
+[Alex Chepovetsky](https://www.linkedin.com/in/alexchepovetsky) and [Maxim Lemberg](https://www.linkedin.com/in/maxim-lemberg-661a06149/) secured version 1.10.4.
+
+Paolo Perego of [armoredcode.com](http://armoredcode.com) secured version 1.8.3.
 
 = Mashup Ingredients =
 
@@ -138,9 +142,6 @@ Features are generally added in one-dot releases, while two-dot releases contain
 Move official source from Google Code to Github.
 
 = 1.8.3 Jan 11 2015 =
-
-Thanks to Paolo Perego of [armoredcode.com](http://armoredcode.com) for finding and fixing an XSS bug in the
-geo search widget.
 
 [milestone 1.8.3 changes](https://github.com/cyberhobo/wordpress-geo-mashup/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3AMilestone-1.8.3)
 
