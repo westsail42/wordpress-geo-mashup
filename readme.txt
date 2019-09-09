@@ -1,4 +1,4 @@
-=== Geo Mashup ===
+=== SVLC Geo Mashup ===
 Contributors: cyberhobo, freemius
 Donate Link:
 Tags: map, maps, google maps, google map, mapping, mashup, geo, google, geocms
