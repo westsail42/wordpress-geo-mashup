@@ -47,6 +47,22 @@
                         <span><?php echo get_post_type_object(get_post_type($post))->labels->singular_name; ?>:</span>
                         <a href="<?php the_permalink(); ?>" title=""><?php the_title(); ?></a>
                         <span class="distance"><?php $geo_mashup_search->the_distance(); ?></span>
+                        <?php if (get_post_type($post) == 'post'): ?>
+                            <?php
+                            $today = date('r');
+                            $articledate = get_the_time('r');
+                            $difference = round((strtotime($today) - strtotime($articledate)) / (24 * 60 * 60), 0);
+                            ?>
+                            <?php if ($difference >= 100): ?>
+                                <?php
+                                echo '(' . get_the_date() . ')';
+                                ?>
+                            <?php else: ?>
+                                <?php
+                                echo '(' . $difference . ' days ago)';
+                                ?>
+                            <?php endif; ?>
+                        <?php endif; ?>
                     </li>
                 <?php endwhile; ?>
 
