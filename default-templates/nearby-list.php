@@ -62,6 +62,11 @@
                                 echo '(' . $difference . ' days ago)';
                                 ?>
                             <?php endif; ?>
+                            <?php if (get_post_type($post) == 'post'): ?>
+                                <?php
+                                echo ' by ' . get_author_name();
+                                ?>
+                            <?php endif; ?>
                         <?php endif; ?>
                     </li>
                 <?php endwhile; ?>
