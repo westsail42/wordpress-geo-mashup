@@ -29,37 +29,39 @@
  * $geo_mashup_search->the_distance( 'decimal_places=1&append_units=0&echo=0' );
  */
 ?>
-<?php if ( $geo_mashup_search->have_posts() ) : ?>
+<?php if ($geo_mashup_search->have_posts()) : ?>
 
-	<aside>
-	<?php if ($object_name == 'post'): ?>
-		<h1><?php _e( 'Posts Nearby', 'GeoMashup' ); ?></h1>
-	<?php elseif ($object_name == 'user'):?>
-		<h1><?php _e( 'Users Nearby', 'GeoMashup' ); ?></h1>
-	<?php endif; ?>
-	<ul class="geo-mashup-nearby-posts">
+    <aside>
+        <?php if ($object_name == 'post'): ?>
+            <!--		<h1>--><?php //_e( 'Posts a Nearby', 'GeoMashup' ); ?><!--</h1>-->
+            <h1>What is nearby?</h1>
+        <?php elseif ($object_name == 'user'): ?>
+            <h1><?php _e('Users Nearby', 'GeoMashup'); ?></h1>
+        <?php endif; ?>
+        <ul class="geo-mashup-nearby-posts">
 
-		<?php if ($object_name == 'post'):?>
+            <?php if ($object_name == 'post'): ?>
 
-			<?php while ( $geo_mashup_search->have_posts() ) : $geo_mashup_search->the_post(); ?>
-				<li>
-					<a href="<?php the_permalink(); ?>" title=""><?php the_title(); ?></a> 
-					<span class="distance"><?php $geo_mashup_search->the_distance(); ?></span>
-				</li>
-			<?php endwhile; ?>
+                <?php while ($geo_mashup_search->have_posts()) : $geo_mashup_search->the_post(); ?>
+                    <li>
+                        <span><?php echo get_post_type_object(get_post_type($post))->labels->singular_name; ?>:</span>
+                        <a href="<?php the_permalink(); ?>" title=""><?php the_title(); ?></a>
+                        <span class="distance"><?php $geo_mashup_search->the_distance(); ?></span>
+                    </li>
+                <?php endwhile; ?>
 
-		<?php elseif ($object_name == 'user'):?>
+            <?php elseif ($object_name == 'user'): ?>
 
-			<?php while ( $geo_mashup_search->have_posts() ) : $user=$geo_mashup_search->get_userdata(); ?>
-				<li>
-					<?php echo $user->first_name.' '.$user->last_name;?> aka <?php echo $user->user_nicename?>
-					<span class="distance"><?php $geo_mashup_search->the_distance(); ?></span>
-				</li>
-			<?php endwhile; ?>		
+                <?php while ($geo_mashup_search->have_posts()) : $user = $geo_mashup_search->get_userdata(); ?>
+                    <li>
+                        <?php echo $user->first_name . ' ' . $user->last_name; ?> aka <?php echo $user->user_nicename ?>
+                        <span class="distance"><?php $geo_mashup_search->the_distance(); ?></span>
+                    </li>
+                <?php endwhile; ?>
 
-		<?php endif; ?>		
+            <?php endif; ?>
 
-	</ul>
-	</aside>
+        </ul>
+    </aside>
 
 <?php endif; ?>
